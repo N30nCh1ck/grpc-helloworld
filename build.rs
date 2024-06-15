@@ -1,6 +1,4 @@
-fn main() {
-    tonic_build::configure()
-        .build_server(true)
-        .compile(&["proto/helloworld.proto"], &["proto"])
-        .unwrap();
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    tonic_build::compile_protos("./proto/movie.proto")?;
+    Ok(())
 }
